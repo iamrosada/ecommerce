@@ -14,7 +14,7 @@ import { urlFor } from "../lib/client";
 
 const Cart = () => {
     const cartRef = useRef();
-    const { totalPrice, totalQuantities, cartItems, setShow } =
+    const { totalPrice, totalQuantities, cartItems, setShowCart } =
         useStateContext();
 
     return (
@@ -23,7 +23,7 @@ const Cart = () => {
                 <button
                     type="button"
                     className="cart-heading"
-                    onClick={() => setShow(false)}
+                    onClick={() => setShowCart(false)}
                 >
                     <AiOutlineLeft />
                     <span className="heading">Your Cart</span>
@@ -36,7 +36,7 @@ const Cart = () => {
                         <Link href="/">
                             <button
                                 type="button"
-                                onClick={() => setShow(false)}
+                                onClick={() => setShowCart(false)}
                                 className="btn"
                             >
                                 Continue Shopping
@@ -44,6 +44,29 @@ const Cart = () => {
                         </Link>
                     </div>
                 )}
+                <div className="product-container">
+                    {cartItems.length >= 1 &&
+                        cartItems.map((item, index) => (
+                            <div className="product" key={item._id}>
+                                <img
+                                    src={urlFor(item?.image[0])}
+                                    className="cart-product-image"
+                                    alt=""
+                                />
+                                <div className="item-desc">
+                                    <div className="flex top">
+                                        <h5>{item.name}</h5>
+                                        <h4>${item.price}</h4>
+                                    </div>
+                                    <div className="flex bottom">
+                                        <div>
+                                            <p className="quantity-desc"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                </div>
             </div>
         </div>
     );
