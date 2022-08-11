@@ -1,4 +1,10 @@
 import React from "react";
+import {
+    AiOutlineMinus,
+    AiOutlinePlus,
+    AiFillStar,
+    AiOutlineStar,
+} from "react-icons/ai";
 import { urlFor, client } from "../../lib/client";
 
 const ProductDetails = ({ product, products }) => {
@@ -9,6 +15,54 @@ const ProductDetails = ({ product, products }) => {
                 <div>
                     <div className="image-container">
                         <img src={urlFor(image && image[0])} alt="" />
+                    </div>
+                    {/* <div className="small-images-container">
+                        {image?.map((item, i) => (
+                            <img src={urlFor(item)} alt="" 
+                            className=""
+                            onMouseEnter=""
+                            />
+                        ))}
+                    </div> */}
+                </div>
+                <div className="product-detail-desc">
+                    <h1>{name}</h1>
+                    <div>
+                        <div className="reviews">
+                            <div>
+                                <AiFillStar />
+                                <AiFillStar />
+                                <AiFillStar />
+                                <AiFillStar />
+                                <AiOutlineStar />
+                            </div>
+                            <p>(20)</p>
+                        </div>
+                        <h4>Details: </h4>
+                        <p>{details}</p>
+                        <p className="price">${price}</p>
+                        <div className="quantity">
+                            <h3>Quantity:</h3>
+                            <p className="quantity-desc">
+                                <span className="minus" onClick="">
+                                    <AiOutlineMinus />
+                                </span>
+                                <span className="num" onClick="">
+                                    0
+                                </span>
+                                <span className="plus" onClick="">
+                                    <AiOutlinePlus />
+                                </span>
+                            </p>
+                        </div>
+                        <div className="buttons">
+                            <button className="add-to-cart" type="button">
+                                Add to Cart
+                            </button>
+                            <button className="buy-now" type="button">
+                                Buy Now
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -24,7 +78,8 @@ export const getStaticPaths = async () => {
       }
     }`;
     const products = await client.fetch(query);
-    const paths = produts.map((product) => ({
+
+    const paths = products.map((product) => ({
         params: {
             slug: product.slug.current,
         },
