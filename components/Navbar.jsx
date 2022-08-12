@@ -8,8 +8,8 @@ const Navbar = () => {
     const { showCart, setShowCart, totalQuantities } = useStateContext();
     return (
         <div className="navbar-container">
-            <p className="logo">
-                <Link href="/">Môbiolo Headphones</Link>
+            <p className="particular-style-logo">
+                <Link href="/">MÔBIOLO </Link>
             </p>
             <button
                 className="cart-icon"

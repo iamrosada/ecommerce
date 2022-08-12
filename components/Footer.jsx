@@ -4,7 +4,8 @@ import { AiFillInstagram, AiOutlineTwitter } from "react-icons/ai";
 const Footer = () => {
     return (
         <div className="footer-container">
-            <p> 2022 Môbiolo Headphones All rights reserved </p>
+            <p> 2022 MÔBIOLO All rights reserved </p>
+            <p> by Luís Rosada </p>
             <p className="icons">
                 <AiFillInstagram />
                 <AiOutlineTwitter />
