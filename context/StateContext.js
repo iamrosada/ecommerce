@@ -52,6 +52,9 @@ export const StateContext = ({ children }) => {
             setTotalPrice(
                 (prevTotalPrice) => prevTotalPrice + foundProduct.price
             );
+            setTotalQuantities(
+                (prevTotalQuantities) => prevTotalQuantities + 1
+            );
         } else if (value === "dec") {
             foundProduct.quantity += 1;
         }
