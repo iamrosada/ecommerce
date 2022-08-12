@@ -1,34 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
-
-First, run the development server:
+# ECOMMERCE
 
 ```bash
-npm run dev
-# or
-yarn dev
+# clone the project
+$ git clone git@github.com:iamrosada/ecommerce.git
+
+# open the folder of project
+# install dependencies
+$ npm install
+
+# serve with hot reload at localhost:3000
+$ npm run dev
+
+# cd sanity_ecommerce
+$ sanaty mange
+$ sanaty start
+
 ```
+![image](https://user-images.githubusercontent.com/59142372/184415376-554e9459-f66e-40fa-9abc-088c2e81ce34.png)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+![image](https://user-images.githubusercontent.com/59142372/184415415-8e95f619-70bd-40d1-8f8d-c973051af233.png)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+![image](https://user-images.githubusercontent.com/59142372/184415490-219aad7e-d36e-4c67-a062-2693647205b7.png)
+![image](https://user-images.githubusercontent.com/59142372/184415604-64b4d685-fd8e-4de6-a2f3-968fb5ae6a39.png)
+![image](https://user-images.githubusercontent.com/59142372/184415685-b20526db-a929-4bbc-bbe2-ec62a7e76e06.png)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### Autor
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+ <img style="border-radius: 50%;" src="https://avatars.githubusercontent.com/u/59142372?v=4" width="100px;" alt=""/>
+ <br />
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Feito com ❤️ por Luis de Água Rosada 👋🏽 Entre em contato!
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+[![Twitter Badge](https://img.shields.io/badge/-@iamrosada_-1ca0f1?style=flat-square&labelColor=1ca0f1&logo=twitter&logoColor=white&link=https://twitter.com/iamrosada_)](https://twitter.com/iamrosada_)
+[![Gmail Badge](https://img.shields.io/badge/-luisrosada@mail.ru-c14438?style=flat-square&logo=Gmail&logoColor=white&link=mailto:luisrosada@mail.ru)](mailto:luisrosada@mail.ru)
