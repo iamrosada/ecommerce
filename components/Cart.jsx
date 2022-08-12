@@ -111,7 +111,7 @@ const Cart = () => {
                                                 <span
                                                     className="plus"
                                                     onClick={() =>
-                                                        toggleCartItemQuanitity(
+                                                        toggleCartItemQuantity(
                                                             item._id,
                                                             "inc"
                                                         )
