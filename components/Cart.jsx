@@ -7,10 +7,11 @@ import {
     AiOutlineShopping,
 } from "react-icons/ai";
 import { TiDeleteOutline } from "react-icons/ti";
-import { toast } from "react-hot-toast";
-import getStripe from "../lib/getStripe";
+import toast from "react-hot-toast";
+
 import { useStateContext } from "../context/StateContext";
 import { urlFor } from "../lib/client";
+import getStripe from "../lib/getStripe";
 
 const Cart = () => {
     const cartRef = useRef();
@@ -42,6 +43,7 @@ const Cart = () => {
 
         stripe.redirectToCheckout({ sessionId: data.id });
     };
+
     return (
         <div className="cart-wrapper" ref={cartRef}>
             <div className="cart-container">
@@ -52,8 +54,11 @@ const Cart = () => {
                 >
                     <AiOutlineLeft />
                     <span className="heading">Your Cart</span>
-                    <span className="cart-num-items">({totalQuantities})</span>
+                    <span className="cart-num-items">
+                        ({totalQuantities} items)
+                    </span>
                 </button>
+
                 {cartItems.length < 1 && (
                     <div className="empty-cart">
                         <AiOutlineShopping size={150} />
@@ -69,14 +74,14 @@ const Cart = () => {
                         </Link>
                     </div>
                 )}
+
                 <div className="product-container">
                     {cartItems.length >= 1 &&
-                        cartItems.map((item, index) => (
+                        cartItems.map((item) => (
                             <div className="product" key={item._id}>
                                 <img
                                     src={urlFor(item?.image[0])}
                                     className="cart-product-image"
-                                    alt=""
                                 />
                                 <div className="item-desc">
                                     <div className="flex top">
@@ -106,7 +111,7 @@ const Cart = () => {
                                                 <span
                                                     className="plus"
                                                     onClick={() =>
-                                                        toggleCartItemQuantity(
+                                                        toggleCartItemQuanitity(
                                                             item._id,
                                                             "inc"
                                                         )

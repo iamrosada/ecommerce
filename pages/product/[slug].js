@@ -5,7 +5,8 @@ import {
     AiFillStar,
     AiOutlineStar,
 } from "react-icons/ai";
-import { urlFor, client } from "../../lib/client";
+
+import { client, urlFor } from "../../lib/client";
 import { Product } from "../../components";
 import { useStateContext } from "../../context/StateContext";
 
@@ -16,17 +17,18 @@ const ProductDetails = ({ product, products }) => {
 
     const handleBuyNow = () => {
         onAdd(product, qty);
+
         setShowCart(true);
     };
+
     return (
         <div>
             <div className="product-detail-container">
                 <div>
                     <div className="image-container">
                         <img
-                            className="product-detail-image"
                             src={urlFor(image && image[index])}
-                            alt=""
+                            className="product-detail-image"
                         />
                     </div>
                     <div className="small-images-container">
@@ -34,7 +36,6 @@ const ProductDetails = ({ product, products }) => {
                             <img
                                 key={i}
                                 src={urlFor(item)}
-                                alt=""
                                 className={
                                     i === index
                                         ? "small-image selected-image"
@@ -48,7 +49,6 @@ const ProductDetails = ({ product, products }) => {
 
                 <div className="product-detail-desc">
                     <h1>{name}</h1>
-
                     <div className="reviews">
                         <div>
                             <AiFillStar />
@@ -76,16 +76,16 @@ const ProductDetails = ({ product, products }) => {
                     </div>
                     <div className="buttons">
                         <button
-                            className="add-to-cart"
                             type="button"
+                            className="add-to-cart"
                             onClick={() => onAdd(product, qty)}
                         >
                             Add to Cart
                         </button>
                         <button
-                            className="buy-now"
                             type="button"
-                            onClick={() => handleBuyNow}
+                            className="buy-now"
+                            onClick={handleBuyNow}
                         >
                             Buy Now
                         </button>
@@ -108,12 +108,13 @@ const ProductDetails = ({ product, products }) => {
 };
 
 export const getStaticPaths = async () => {
-    //para return os dados do produto clicado
-    const query = `*[_type== "product"]{
-      slug{
-        current
-      }
-    }`;
+    const query = `*[_type == "product"] {
+    slug {
+      current
+    }
+  }
+  `;
+
     const products = await client.fetch(query);
 
     const paths = products.map((product) => ({
@@ -121,23 +122,25 @@ export const getStaticPaths = async () => {
             slug: product.slug.current,
         },
     }));
+
     return {
         paths,
         fallback: "blocking",
     };
 };
+
 export const getStaticProps = async ({ params: { slug } }) => {
     const query = `*[_type == "product" && slug.current == '${slug}'][0]`;
-    const productQuery = '*[_type == "product"]';
+    const productsQuery = '*[_type == "product"]';
 
     const product = await client.fetch(query);
-    const products = await client.fetch(productQuery);
+    const products = await client.fetch(productsQuery);
 
-    const bannerQuery = '*[_type == "banner"]';
-    const bannerData = await client.fetch(bannerQuery);
+    console.log(product);
 
     return {
-        props: { product, products },
+        props: { products, product },
     };
 };
+
 export default ProductDetails;
